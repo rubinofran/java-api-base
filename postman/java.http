@@ -1,0 +1,33 @@
+# Variables
+@prot=http
+@server=localhost
+@port=8080
+
+### getAllUsers
+GET {{prot}}://{{server}}:{{port}}/user
+
+### getUserById
+GET {{prot}}://{{server}}:{{port}}/user/5
+
+### deleteUserById
+DELETE {{prot}}://{{server}}:{{port}}/user/5
+
+### saveUser
+POST {{prot}}://{{server}}:{{port}}/user
+Content-Type: application/json
+
+{
+    "name":"Paula",
+    "email":"Pauli@mail.com",
+    "priority":2
+}
+
+### updateUserById
+PUT {{prot}}://{{server}}:{{port}}/user/2
+Content-Type: application/json
+
+{
+    "name":"Alejandro",
+    "email":"Ale@mail.com",
+    "priority":2
+}

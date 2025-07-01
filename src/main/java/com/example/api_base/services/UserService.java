@@ -2,7 +2,6 @@ package com.example.api_base.services;
 
 import java.util.*;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.api_base.models.UserModel;
 
@@ -11,8 +10,11 @@ import com.example.api_base.repositories.UserRepository;
 @Service
 public class UserService {
     
-    @Autowired
-    UserRepository userRepository;
+    private final UserRepository userRepository;
+
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     public Optional<UserModel> getUserById(Long id) {
         if (userRepository.existsById(id)) {

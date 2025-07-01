@@ -31,7 +31,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{prot}}://{{server}}:{{port}}/user/4",
+					"raw": "{{prot}}://{{server}}:{{port}}/user/5",
 					"protocol": "{{prot}}",
 					"host": [
 						"{{server}}"
@@ -39,7 +39,7 @@
 					"port": "{{port}}",
 					"path": [
 						"user",
-						"4"
+						"5"
 					]
 				}
 			},
@@ -96,11 +96,11 @@
 		{
 			"name": "updateUserById",
 			"request": {
-				"method": "POST",
+				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"Alejandro\",\r\n    \"email\":\"Ale@mail.com\",\r\n    \"priority\":1\r\n}",
+					"raw": "{\r\n    \"name\":\"Alejandro\",\r\n    \"email\":\"Ale@mail.com\",\r\n    \"priority\":5\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

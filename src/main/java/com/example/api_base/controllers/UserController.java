@@ -5,7 +5,6 @@ import com.example.api_base.services.UserService;
 
 import java.util.*;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,8 +13,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/user")
 public class UserController {
     
-    @Autowired
-    UserService userService;
+    private final UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping(path="/{id}")
     public ResponseEntity<Object> getUserById(@PathVariable Long id) {
@@ -34,7 +36,7 @@ public class UserController {
         return userService.saveUser(user);
     }   
 
-    @PostMapping(path="/{id}")
+    @PutMapping(path="/{id}")
     public ResponseEntity<Object> updateUserById(@PathVariable Long id, @RequestBody UserModel user) {
         return userService.updateUserById(id, user)
             .<ResponseEntity<Object>>map(updatedUser -> ResponseEntity.ok(updatedUser))
